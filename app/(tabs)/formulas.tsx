@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../global.css";
 import { Link, useRouter } from "expo-router";
 import { Ellipsis } from "lucide-react";
+import { ScrollView } from "react-native";  // Importa ScrollView
 
 type Disciplina = {
   name: string;
@@ -14,23 +15,20 @@ type Disciplina = {
 
 export default function Formulas() {
   const [disciplinas, setDisciplinas] = useState<Disciplina[]>([]);
-  const [loading, setLoading] = useState(true); // Estado para controlar o carregamento
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const fetchDisciplinas = async () => {
       try {
-        // Buscar o índice de arquivos JSON
         const response = await fetch("../../../LISTA DE JSON/index.json");
         const files = await response.json();
 
-        // Carregar os dados de cada arquivo JSON
         const disciplinasAtivas: Disciplina[] = [];
         for (const file of files) {
           const disciplinaResponse = await fetch(`../../../LISTA DE JSON/${file}`);
           const disciplinaData = await disciplinaResponse.json();
 
-          // Filtrar apenas disciplinas com status "active"
           if (disciplinaData.status === "active") {
             disciplinasAtivas.push({
               name: disciplinaData.name,
@@ -47,7 +45,7 @@ export default function Formulas() {
       } catch (error) {
         console.error("Erro ao carregar disciplinas:", error);
       } finally {
-        setLoading(false); // Finalizar o carregamento
+        setLoading(false);
       }
     };
 
@@ -86,15 +84,14 @@ export default function Formulas() {
           Escolha as fórmulas de uma disciplina
         </p>
 
-        {/* Carregamento */}
         {loading ? (
           <div className="flex flex-col items-center justify-center h-full">
             <div className="w-10 h-10 border-4 border-t-transparent border-green-500 rounded-full animate-spin"></div>
             <p className="text-green-500 text-lg font-semibold mt-4">Carregando disciplinas...</p>
           </div>
         ) : (
-          /* Lista de Disciplinas */
-          <div className="flex flex-col items-center space-y-3 w-full">
+          // Envolve a lista com ScrollView para permitir rolagem vertical
+          <ScrollView className="flex flex-col items-center space-y-3 w-full">
             {disciplinas.map((disciplina) => (
               <Link key={disciplina.slug} href={`../disciplina/${disciplina.slug}`} className="w-full">
                 <div className="flex flex-row bg-zinc-400/20 rounded-xl items-center p-4 w-full hover:bg-zinc-300 transition">
@@ -123,7 +120,7 @@ export default function Formulas() {
                 </div>
               </Link>
             ))}
-          </div>
+          </ScrollView>
         )}
       </div>
     </>

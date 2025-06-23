@@ -1,0 +1,102 @@
+{
+    "name": "Eletrônica Digital II",
+    "slug": "eletronica-digital-ii",
+    "course": "Eletrônica",
+    "semmester": 4,
+    "period": "Noturno",
+    "status": "active",
+    "description": "Conceitos e fórmulas fundamentais da disciplina de Eletrônica Digital II, com foco em codificadores, decodificadores, somadores, multiplexadores e flip-flops.",
+    "content": "Apostila base: Eletrônica Digital II - IFSul - v.2019-02-12",
+    "formulas": [
+        {
+            "name": "Complemento de Dois",
+            "description": "Utilizado para representar números negativos em sistemas binários, principalmente para subtração com circuitos digitais.",
+            "latex": [
+                "\\text{Comp}_2(N) = \\sim N + 1"
+            ],
+            "variables": {
+                "N": "Número binário positivo a ser invertido",
+                "\\sim N": "Inverso bit a bit de N",
+                "Comp_2(N)": "Complemento de dois de N"
+            }
+        },
+        {
+            "name": "Cálculo de bits de controle de um MUX",
+            "description": "Determina a quantidade de bits de seleção necessários para um multiplexador com n entradas.",
+            "latex": [
+                "m = \\log_2(n)"
+            ],
+            "variables": {
+                "m": "Número de bits de controle",
+                "n": "Número de entradas de dados do MUX"
+            }
+        },
+        {
+            "name": "Comparador de 1 bit – A > B",
+            "description": "Lógica para identificar se A é maior que B em um comparador de 1 bit.",
+            "latex": [
+                "A > B = A \\cdot \\overline{B}"
+            ],
+            "variables": {
+                "A": "Bit de entrada A",
+                "B": "Bit de entrada B"
+            }
+        },
+        {
+            "name": "Comparador de 1 bit – A = B",
+            "description": "Lógica para identificar se A é igual a B em um comparador de 1 bit.",
+            "latex": [
+                "A = B = \\overline{A} \\cdot \\overline{B} + A \\cdot B"
+            ],
+            "variables": {
+                "A": "Bit de entrada A",
+                "B": "Bit de entrada B"
+            }
+        },
+        {
+            "name": "Comparador de 1 bit – A < B",
+            "description": "Lógica para identificar se A é menor que B em um comparador de 1 bit.",
+            "latex": [
+                "A < B = \\overline{A} \\cdot B"
+            ],
+            "variables": {
+                "A": "Bit de entrada A",
+                "B": "Bit de entrada B"
+            }
+        },
+        {
+            "name": "Operação do Somador/Subtrator",
+            "description": "Define a operação realizada (soma ou subtração) com base no valor do sinal SUB.",
+            "latex": [
+                "SUB = 0 \\Rightarrow A + B",
+                "SUB = 1 \\Rightarrow A + \\sim B + 1"
+            ],
+            "variables": {
+                "A": "Primeiro operando binário",
+                "B": "Segundo operando binário",
+                "SUB": "Bit de controle: 0 para soma, 1 para subtração"
+            }
+        }
+    ],
+    "references": [
+        {
+            "name": "Apostila de Eletrônica Digital II",
+            "description": "Material didático do IFSul utilizado na disciplina."
+        }
+    ],
+    "tags": [
+        "eletrônica digital",
+        "complemento de dois",
+        "multiplexador",
+        "comparador",
+        "somador",
+        "ifsul"
+    ],
+    "alias": [
+        "edii",
+        "ed2",
+        "eletronica digital",
+        "ed-ii"
+    ],
+    "fileVersion": 2
+}
