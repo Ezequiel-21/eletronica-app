@@ -22,7 +22,7 @@
         },
         {
             "name": "Cálculo de bits de controle de um MUX",
-            "description": "Determina a quantidade de bits de seleção necessários para um multiplexador com n entradas.",
+            "description": "Determina a quantidade de bits de seleção necessários para um multiplexador com N entradas.",
             "latex": [
                 "m = \\log_2(n)"
             ],
